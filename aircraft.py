@@ -48,7 +48,7 @@ def PrintAircrafts(aircrafts):
 
 
 def AddAircraft(aircrafts, aircraft):
-    # Afegeix un nou avió a la llista
+    # Afegeix un nou avió a la
     aircrafts.append(aircraft)
 
 
