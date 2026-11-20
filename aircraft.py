@@ -1,76 +1,41 @@
-import os
-
-
 class Aircraft:
-    # Constructor de la classe amb l'aeroport inicial (Step 1)
-    def __init__(self, callsign, aircraft_type, capacity, initial_airport):
+    def __init__(self, callsign, ac_type, capacity, initial_airport="LEBL"):
         self.callsign = callsign
-        self.type = aircraft_type
+        self.type = ac_type
         self.capacity = int(capacity)
         self.initial_airport = initial_airport
 
-
-def PrintAircraft(aircraft):
-    print(
-        f"Callsign: {aircraft.callsign} | Type: {aircraft.type} | Capacity: {aircraft.capacity} | Base: {aircraft.initial_airport}")
-
-
-def LoadAircrafts(filename):
+def LoadAircrafts(filename="Aircrafts.txt", pos_filename=None):
     aircrafts = []
-    if not os.path.exists(filename):
-        return aircrafts
+    positions = {}
 
-    with open(filename, 'r') as file:
-        for line in file:
-            parts = line.strip().split()
-            # Ignorem la capçalera i línies incompletes
-            if len(parts) >= 4 and parts[0] != "CALLSIGN":
-                try:
+    if pos_filename:
+        try:
+            with open(pos_filename, "r", encoding="utf-8") as pf:
+                for line in pf.readlines()[1:]:
+                    parts = line.strip().split()
+                    if len(parts) >= 3:
+                        positions[parts[0]] = parts[2]
+        except FileNotFoundError:
+            pass
+
+    try:
+        with open(filename, "r", encoding="utf-8") as f:
+            for line in f.readlines()[1:]:
+                parts = line.strip().split()
+                if len(parts) >= 3:
                     callsign = parts[0]
-                    aircraft_type = parts[1]
+                    ac_type = parts[1]
                     capacity = int(parts[2])
-                    initial_airport = parts[3]
-                    aircrafts.append(Aircraft(callsign, aircraft_type, capacity, initial_airport))
-                except ValueError:
-                    continue
-            # Compatibilitat amb fitxers de 3 columnes (per defecte "LEBL")
-            elif len(parts) == 3 and parts[0] != "CALLSIGN":
-                try:
-                    aircrafts.append(Aircraft(parts[0], parts[1], int(parts[2]), "LEBL"))
-                except ValueError:
-                    continue
+                    init_ap = positions.get(callsign, parts[3] if len(parts) >= 4 else "LEBL")
+                    aircrafts.append(Aircraft(callsign, ac_type, capacity, init_ap))
+    except FileNotFoundError:
+        pass
+
     return aircrafts
 
-
-def SaveAircrafts(aircrafts, filename):
-    with open(filename, 'w') as file:
-        file.write("CALLSIGN AC-TYPE SEATS INITIAL_AIRPORT\n")
+def SaveAircrafts(aircrafts, filename="aircrafts_end_of_day.txt"):
+    with open(filename, "w", encoding="utf-8") as f:
+        f.write("CALLSIGN AC-TYPE AIRP\n")
         for a in aircrafts:
-            file.write(f"{a.callsign} {a.type} {a.capacity} {a.initial_airport}\n")
-
-
-def PrintAircrafts(aircrafts):
-    for a in aircrafts:
-        PrintAircraft(a)
-
-
-def AddAircraft(aircrafts, aircraft):
-    aircrafts.append(aircraft)
-
-
-def RemoveAircraft(aircrafts, callsign):
-    for a in aircrafts:
-        if a.callsign == callsign:
-            aircrafts.remove(a)
-            return 0
-    return -1
-
-
-# Secció de proves (Step 1)
-if __name__ == "__main__":
-    avions = LoadAircrafts("aircrafts.txt")
-    print("--- Avions carregats (Step 1) ---")
-    PrintAircrafts(avions)
-
-    AddAircraft(avions, Aircraft("TEST1", "A320", 180, "LEBL"))
-    SaveAircrafts(avions, "aircrafts_saved.txt")
+            f.write(f"{a.callsign} {a.type} {a.initial_airport}\n")

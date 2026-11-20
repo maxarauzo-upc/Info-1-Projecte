@@ -4,14 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2556deb-9769-4380-b5f7-6438296f3fed" name="Changes" comment="Versió 1">
-      <change afterPath="$PROJECT_DIR$/airport.py" afterDir="false" />
+    <list default="true" id="c2556deb-9769-4380-b5f7-6438296f3fed" name="Changes" comment="Versió 1+2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Aircrafts.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Aircrafts.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Interface.py" beforeDir="false" afterPath="$PROJECT_DIR$/Interface.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/aircraft.py" beforeDir="false" afterPath="$PROJECT_DIR$/aircraft.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/airline.py" beforeDir="false" afterPath="$PROJECT_DIR$/airline.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/airport.py" beforeDir="false" afterPath="$PROJECT_DIR$/airport.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flight.py" beforeDir="false" afterPath="$PROJECT_DIR$/flight.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/operations.txt" beforeDir="false" afterPath="$PROJECT_DIR$/operations.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,7 +20,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="16" />
+    <option name="cachedIndexableFilesCount" value="19" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -195,8 +196,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.Interface" />
-        <item itemvalue="Python.aircraft" />
         <item itemvalue="Python.flight" />
+        <item itemvalue="Python.aircraft" />
         <item itemvalue="Python.airline" />
         <item itemvalue="Python.test_aircraft" />
       </list>
@@ -233,11 +234,20 @@
       <option name="project" value="LOCAL" />
       <updated>1793979346127</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Versió 1+2">
+      <option name="closed" value="true" />
+      <created>1793982019259</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1793982019259</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Versió 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Versió 1" />
+    <MESSAGE value="Versió 1+2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Versió 1+2" />
   </component>
 </project>
